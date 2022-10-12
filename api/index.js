@@ -36,6 +36,12 @@ app.use('/users', usersRoute)
 app.use('/hotels', hotelsRoute)
 app.use('/rooms', roomsRoute)
 
+app.use((error, req, res, next) => {
+  const errorStatus = error.status || 500
+  const errorMessage = error.message || 'Something went wrong'
+  return res.status(errorStatus).json(errorMessage)
+})
+
 app.listen(8800, () => {
   connect()
   console.log('connected')
