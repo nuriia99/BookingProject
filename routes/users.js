@@ -19,7 +19,7 @@ router.get('/', verifyAdmin, getUsers)
 
 router.get('/:id', getUser)
 
-router.put('/:id', verifyUser, updateUser)
+router.patch('/:id', verifyUser, updateUser)
 
 router.delete('/:id', verifyUser, deleteUser)
 
